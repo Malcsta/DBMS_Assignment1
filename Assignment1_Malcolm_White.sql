@@ -52,19 +52,49 @@ FROM Employees
 WHERE hire_date BETWEEN '2008-01-01'
 AND '2008-02-29';
 
+
 -- Q7 
 SELECT department_name AS "Department Name"
-FROM departments
+FROM Departments
 WHERE manager_id IS NULL 
 AND department_name LIKE '%Sales%'
 ORDER BY department_name DESC;
+
 
 -- Q8
 SELECT employee_id AS "Employee ID",
 	   start_date AS "Start Date",
 	   job_id AS "Job ID"
-FROM job_history
+FROM Job_history
 WHERE start_date < '2000-01-01' OR job_id IN ('MK_REP', 'SA_REP');
+
+
+-- Q9 
+SELECT job_title AS "Job Title",
+	   max_salary AS "Original Max Salary",
+	   max_salary * 1.1 AS "New Max Salary"
+FROM Jobs
+WHERE max_salary * 1.1 <= 7000
+ORDER BY "New Max Salary" ASC;
+
+
+-- Q10
+SELECT employee_id AS "Employee ID",
+	   first_name AS "First Name",
+	   last_name AS "Last Name"
+FROM Employees
+WHERE LEFT (last_name, 1) = 'M'
+ORDER BY first_name ASC;
+	   
+
+
+
+
+
+
+
+
+
 
 
 
